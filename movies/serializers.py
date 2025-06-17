@@ -7,5 +7,8 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ('id', 'title', 'genre', 'year')
-
+        
+    def validate_title(self,value):
+        return value.upper().strip()
+    
 
